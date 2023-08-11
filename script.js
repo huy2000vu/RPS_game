@@ -11,6 +11,19 @@ function getComputerChoice() {
       return "scissor";
   }
 }
-for (let i = 0; i <= 10; i++) {
-  console.log(getComputerChoice());
+function playRound(pc, player) {
+  if (pc.toLowerCase() === player.toLowerCase()) {
+    return "tie";
+  } else if (
+    (pc.toLowerCase() === "rock" && player.toLowerCase() === "scissor") ||
+    (pc.toLowerCase() === "paper" && player.toLowerCase() === "rock") ||
+    (pc.toLowerCase() === "scissor" && player.toLowerCase() === "paper")
+  ) {
+    return "pc wins";
+  } else return "player wins";
 }
+const pcChoice = getComputerChoice();
+const playerChoice = "rock";
+console.log("pc: " + pcChoice);
+console.log("player: " + playerChoice);
+console.log(playRound(pcChoice, playerChoice));
